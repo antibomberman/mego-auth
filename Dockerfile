@@ -4,5 +4,5 @@ COPY . .
 
 RUN go mod tidy
 
-RUN go build -o user cmd/user/main.go
-CMD ["./user"]
+RUN go build -o auth cmd/auth/main.go
+CMD ["./auth"]
