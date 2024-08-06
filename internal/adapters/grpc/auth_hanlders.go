@@ -9,12 +9,6 @@ import (
 	"log"
 )
 
-func (s serverAPI) Register(ctx context.Context, req *pb.RegisterRequest) (*pb.RegisterResponse, error) {
-	return &pb.RegisterResponse{
-		Message: "successfully registered",
-		Success: true,
-	}, nil
-}
 func (s serverAPI) LoginByEmail(ctx context.Context, req *pb.LoginByEmailRequest) (*pb.LoginByEmailResponse, error) {
 	fmt.Println("LoginByEmail", req.Email, req.Code)
 	token, err := s.service.LoginByEmail(req.Email, req.Code)
@@ -76,7 +70,13 @@ func (s serverAPI) Check(ctx context.Context, req *pb.CheckRequest) (*pb.CheckRe
 	}, nil
 }
 func (s serverAPI) Logout(ctx context.Context, req *pb.LogoutRequest) (*pb.LogoutResponse, error) {
-	fmt.Println("Logout")
+	err := s.service.Logout(req.Token)
+	if err != nil {
+		return &pb.LogoutResponse{
+			Message: err.Error(),
+			Success: false,
+		}, err
+	}
 	return &pb.LogoutResponse{
 		Message: "Successfully logged out",
 		Success: true,
