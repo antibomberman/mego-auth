@@ -14,17 +14,11 @@ func (s serverAPI) LoginByEmail(ctx context.Context, req *pb.LoginByEmailRequest
 	token, err := s.service.LoginByEmail(req.Email, req.Code)
 
 	if err != nil {
-		return &pb.LoginByEmailResponse{
-			Message: err.Error(),
-			Token:   token,
-			Success: false,
-		}, err
+		return nil, err
 	}
 
 	return &pb.LoginByEmailResponse{
-		Message: "Successfully logged in",
-		Token:   token,
-		Success: true,
+		Token: token,
 	}, err
 
 }
@@ -33,14 +27,10 @@ func (s serverAPI) LoginByEmailSendCode(ctx context.Context, req *pb.LoginByEmai
 	err := s.service.LoginByEmailSendCode(req.Email)
 	if err != nil {
 		log.Println("Error sending code", err)
-		return &pb.LoginByEmailSendCodeResponse{
-			Message: err.Error(),
-			Success: false,
-		}, err
+		return nil, err
 	}
 	log.Println("Code sent successfully", req.Email)
 	return &pb.LoginByEmailSendCodeResponse{
-		Message: "Code sent successfully",
 		Success: true,
 	}, nil
 }
@@ -48,14 +38,10 @@ func (s serverAPI) Parse(ctx context.Context, req *pb.ParseRequest) (*pb.ParseRe
 
 	userId, err := s.service.Parse(req.Token)
 	if err != nil {
-		return &pb.ParseResponse{
-			Success: false,
-			UserId:  "",
-		}, err
+		return nil, err
 	}
 	return &pb.ParseResponse{
-		Success: true,
-		UserId:  userId,
+		UserId: userId,
 	}, nil
 }
 func (s serverAPI) Check(ctx context.Context, req *pb.CheckRequest) (*pb.CheckResponse, error) {
@@ -72,13 +58,9 @@ func (s serverAPI) Check(ctx context.Context, req *pb.CheckRequest) (*pb.CheckRe
 func (s serverAPI) Logout(ctx context.Context, req *pb.LogoutRequest) (*pb.LogoutResponse, error) {
 	err := s.service.Logout(req.Token)
 	if err != nil {
-		return &pb.LogoutResponse{
-			Message: err.Error(),
-			Success: false,
-		}, err
+		return nil, err
 	}
 	return &pb.LogoutResponse{
-		Message: "Successfully logged out",
 		Success: true,
 	}, nil
 }

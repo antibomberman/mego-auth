@@ -7,6 +7,8 @@ github.com/antibomberman/mego-protos v0.0.37 h1:pV4OOsJEwlXzOBTyv1PBarhpKvIvlBUu
 github.com/antibomberman/mego-protos v0.0.37/go.mod h1:VPMBG3z+MOzBSAyIqD1tWXYVDSv20kHozawJ7Tc8F7Y=
 github.com/antibomberman/mego-protos v0.0.39 h1:IJGliLe6vTpx33pVEJ3vAptX5k1/MauXyIXX0MyxwQU=
 github.com/antibomberman/mego-protos v0.0.39/go.mod h1:VPMBG3z+MOzBSAyIqD1tWXYVDSv20kHozawJ7Tc8F7Y=
+github.com/antibomberman/mego-protos v0.0.50 h1:RXBsIHbe+XFZnmV3LuOTTYVzh2gA5MzM/KD6GkxlY7I=
+github.com/antibomberman/mego-protos v0.0.50/go.mod h1:VPMBG3z+MOzBSAyIqD1tWXYVDSv20kHozawJ7Tc8F7Y=
 github.com/cespare/xxhash/v2 v2.3.0/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f/go.mod h1:cuUVRXasLTGF7a8hSLbxyZXjz+1KgoB3wDUb6vlszIc=
 github.com/go-sql-driver/mysql v1.8.1/go.mod h1:wEBSXgmK//2ZFJyE+qWnIsVGmvmEKlqwuVSjsCm7DZg=
