@@ -59,6 +59,10 @@ func (s *authService) LoginByEmail(email, code string) (string, error) {
 }
 
 func (s *authService) LoginByEmailSendCode(email string) error {
+	_, err := s.userClient.GetByEmail(context.Background(), &user.Email{Email: email})
+	if err != nil {
+		return err
+	}
 	code := generateRandomCode(9999, 1000)
 	//TODO send email with code
 	//TODO send code 1234
