@@ -27,7 +27,7 @@ func NewSecure(cfg *config.Config) Secure {
 	}
 }
 func (a secure) Generate(UserId string) (string, error) {
-	expirationTime := time.Now().Add(24 * time.Hour)
+	expirationTime := time.Now().Add(30 * 24 * time.Hour)
 	claims := &Claims{
 		UserId: UserId,
 		RegisteredClaims: jwt.RegisteredClaims{
